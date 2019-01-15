@@ -31,6 +31,6 @@ The CNCF End User Community enables you to:
 3.  Align your business strategy with cloud native
 
     * Work with other organizations in the [TODO Group](https://todogroup.org) to build an open source culture and open source program office within your organization.
-    * Educate leadership and legal teams in open source via the Linux Foundation's Open Source Leadership Summit andLegal Summits.
+    * Educate leadership and legal teams in open source via the Linux Foundation's Open Source Leadership Summit and Legal Summits.
 
 [Get more information or request to join](https://www.cncf.io/people/end-user-community/)
