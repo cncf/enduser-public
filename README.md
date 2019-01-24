@@ -21,12 +21,12 @@ The CNCF End User Community enables you to:
     * Collaborate with your peers in End User SIGs. End User SIGs connect end users with similar organizations, in order to overcome common challenges, learn from each other, and share best practices.
     * Voice your thoughts and needs to projects, the Technical Oversight Committee and the CNCF through regular online forums.
     * Receive 2 to 5 tickets ($2,200 - $5,500 value) to attend the premiere event in the cloud native community, KubeCon + CloudNativeCon, in either North America, China or Europe.
-    * Attend the End User Partner Summits at KubeCon + CloudNativeCon to meet other end users face to face.
+    * Meet other end users face to face at End User Partner Summits at KubeCon + CloudNativeCon.
 
 2.  Grow your engineering organisation
 
-    * Increase brand visibility and Participate in our End User Case study program, panels and blogs to elevate your organization’s use of CNCF projects with the community and gain exposure helpful in hiring top talent.
-    * Participate in the new CNCF End User Recruiting Booth at KubeCon + CloudNativeCon to recruit the best and brightest in the cloud native space.
+    * Increase brand visibility through in our End User Case study program, panels and blogs to elevate your organization’s use of CNCF projects with the community.
+    * Participate in the CNCF End User Recruiting Booth at KubeCon + CloudNativeCon to recruit the best and brightest in the cloud native space.
 
 3.  Align your business strategy with cloud native
 
