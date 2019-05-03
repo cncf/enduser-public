@@ -12,6 +12,12 @@ The community collaborates via:
 
 If your organization is already a member of the [End User Community](https://www.cncf.io/people/end-user-community/), you can [request access here](https://github.com/cncf/enduser-public/issues/new?assignees=oicheryl&labels=&template=access-end-user-community.md&title=Request+access+for+%5BORGANIZATION+NAME%5D) or email twaggoner@linuxfoundation.org.
 
+## End User SIGs and User Groups
+
+* Developer Experience (DX) SIG
+* Financial SIG
+* Telco User Group
+
 ## Join
 
 The CNCF End User Community enables you to:
