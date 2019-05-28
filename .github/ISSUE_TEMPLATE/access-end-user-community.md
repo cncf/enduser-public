@@ -22,7 +22,7 @@ Github usernames:
 2.
 ...
 
-Email addresses:
+Work email addresses (we don't use personal email addresses for this group):
 1.
 2.
 ...
