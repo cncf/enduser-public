@@ -18,6 +18,14 @@ If your organization is already a member of the [End User Community](https://www
 * Financial SIG
 * Telco User Group
 
+## Case Studies
+
+The CNCF produces and lists [case studies](https://docs.google.com/presentation/d/1f74BMrodkP-_dKDNTasRHBqt07YBwLNDgy81TXlaNL8/edit#slide=id.g4234157abe_1_742) for our end users and projects:
+
+https://www.cncf.io/projects/case-studies/
+
+If you're interested in producing a case study, please reach out to info@cncf.io.
+
 ## Join
 
 The CNCF End User Community enables you to:
