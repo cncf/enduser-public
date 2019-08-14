@@ -15,8 +15,9 @@ If your organization is already a member of the [End User Community](https://www
 ## End User SIGs and User Groups
 
 * Developer Experience (DX) SIG
-* Financial SIG
-* Telco User Group
+* [Financial User Group](https://github.com/cncf/financial-user-group)
+* [Research User Group](https://github.com/cncf/research-user-group)
+* [Telco User Group](https://github.com/cncf/telecom-user-group)
 
 ## Case Studies
 
