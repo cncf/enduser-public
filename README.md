@@ -12,6 +12,19 @@ The community collaborates via:
 
 If your organization is already a member of the [End User Community](https://www.cncf.io/people/end-user-community/), you can [request access here](https://github.com/cncf/enduser-public/issues/new?assignees=oicheryl&labels=&template=access-end-user-community.md&title=Request+access+for+%5BORGANIZATION+NAME%5D) or email twaggoner@linuxfoundation.org.
 
+## CNCF End User Partner Summit
+
+This is the face-to-face meeting, as a Day Zero Co-located event at KubeCon CloudNativeCon. The goals are to:
+
+* Share and learn about other end users
+* Find common needs and plan future collaboration 
+
+Tickets cost USD $100 which is donated to the diversity scholarship. Your organization must be a member of the CNCF End User Community (https://www.cncf.io/people/end-user-community/) to attend. End user members may purchase up to 4 tickets, and end user supporters may purchase up to 2.
+
+To join, register your KubeCon CloudNativeCon ticket with your company email address and add the "CNCF End User Partner Summit" to your ticket.
+
+The complete agenda is [available on the private cncf/enduser repository](https://github.com/cncf/enduser/blob/master/kubecon/README.md). If this 404s for you, [open an issue to request access](https://github.com/cncf/enduser-public/issues/new?assignees=oicheryl&labels=&template=access-end-user-community.md&title=Request+access+for+%5BORGANIZATION+NAME%5D).
+
 ## End User SIGs and User Groups
 
 * Developer Experience (DX) SIG
