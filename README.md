@@ -10,7 +10,7 @@ The community collaborates via:
 * [The mailing list](https://lists.cncf.io/g/cncf-enduser/topics)
 * [#enduser channel on the CNCF Slack](https://slack.cncf.io/)
 
-If your organization is already a member of the [End User Community](https://www.cncf.io/people/end-user-community/), you can [request access here](https://github.com/cncf/enduser-public/issues/new?assignees=oicheryl&labels=&template=access-end-user-community.md&title=Request+access+for+%5BORGANIZATION+NAME%5D) or email twaggoner@linuxfoundation.org.
+If your organization is already a member of the [End User Community](https://www.cncf.io/people/end-user-community/), you can [request access here](http://memberdesk.cncf.io/) or email twaggoner@linuxfoundation.org.
 
 ## CNCF End User Partner Summit
 
