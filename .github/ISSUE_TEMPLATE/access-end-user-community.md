@@ -1,11 +1,13 @@
 ---
-name: Access End User Community
+name: [DO NOT USE] Access End User Community 
 about: Request access to community channels
 title: Request access for [ORGANIZATION NAME]
 labels: ''
 assignees: oicheryl
 
 ---
+
+> Please do not use this template. Instead, use the [CNCF Member Desk](http://memberdesk.cncf.io/) to request access.
 
 Submit this issue to request access to the End User Community
 
