@@ -30,7 +30,7 @@ The complete agenda is [available on the private cncf/enduser repository](https:
 * Developer Experience (DX) SIG
 * [Financial User Group](https://github.com/cncf/financial-user-group)
 * [Research User Group](https://github.com/cncf/research-user-group)
-* [Telco User Group](https://github.com/cncf/telecom-user-group)
+* [Telecom User Group](https://github.com/cncf/telecom-user-group)
 
 ## Case Studies
 
