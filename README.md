@@ -7,6 +7,10 @@ User Community.
 
 The community collaborates via:
 * [The cncf/enduser private repo, including SIGs](https://github.com/cncf/enduser)
+   * This repo includes an insightful question/answer catalog for end user companies
+     that includes relatively detailed answers from end user companies about how they
+     operate, what cloud native tools they're using, technical/process concerns and
+     choices, etc.
 * [The mailing list](https://lists.cncf.io/g/cncf-enduser/topics)
 * [#enduser channel on the CNCF Slack](https://slack.cncf.io/)
 
