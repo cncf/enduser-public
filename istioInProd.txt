@@ -1,0 +1,299 @@
+**Istio In Production Meeting Agenda and Minutes**
+
+**February 24, 2020, 8am PT / [4pm UTC](http://time.unitarium.com/utc/4pm)**
+
+**Zoom:** https://livenation.zoom.us/j/336305796
+
+**Attendees**: (Please add your name below after signing in Zoom)
+
+
+
+*   Jackie Fong, Ticketmaster
+*   Andreas Theodoulou, Ticketmaster
+*   Giorgos Dimitriou, BabylonHealth
+*   Jon Moter, Zendesk
+*   Mihai Baciu, GoPro
+*   Daniel Stancu, GoPro
+*   Maria Rotaru, GoPro
+*   Jim Walters, GoPro
+*   Sean Silvestri, SAP Concur
+*   Jimmy Song, Ant Financial
+*   Xu Wang, Ant Financial
+*   Cheryl Hung, CNCF
+*   Vlad Ungureanu, Will Hickman, Palantir Technologies
+*   Henning Jacobs, Zalando SE
+*   Alex Nodet, King
+*   Federico Hernandez, Meltwater
+*   Jessica Andersson, Meltwater
+*   David Radcliffe, Shopify
+*   Karim Shehadeh, Under Armour
+*   Mikolaj Pawlikowski, Bloomberg
+*   Daniel Quiles, Bloomberg
+*   Simone Sciarrati, Meltwater
+*   Leo Hexspoor, NetMatch
+*   Maria Rotaru, GoPro
+*   Michael Payne, JPM
+*   János Csorvási, Meltwater
+*   Cedric Fernandes, GoPro
+*   David Mark, Coinsquare
+*   Jannis Rake-Revelant, Arpad Ryszka, Zalando SE
+*   Suresh Visvanathan, Yahoo!
+*   Laurent Benchimol, Jason Webb, Mukulika Kapas, Anil Attuluri, Intuit 
+*   Ihor Dvoretskyi, CNCF
+*   Aymen Chetoui, Zendesk
+*   Keith Nielsen, Discover Financial Services
+*   Lindison Webb, Ticketmaster
+*   Kunal Parmar, Box
+*   Evgeny Shmarnev, SAP Concur
+*   Prashanth Adhikari, SAP Concur
+*   Jesus Carrillo, Ticketmaster
+*   Katie Gamanji, American Express
+*   Brian Spindler, Ticketmaster
+*   Vicente De Luca, Zendesk
+
+**Discussion Questions:**
+
+
+
+*   How much operational overhead is it on top of Kubernetes (installation + management)?
+*   What P1 issues were encountered in Istio? Which components had the most issues?
+*   What are the challenges encountered with service meshes in production?
+*   What are the potential learning curves for managing and consuming Istio?
+*   How did you phase Istio in organizationally e.g. in what strategic areas was the mesh introduced?
+*   Where is the delineation in your meshes should you have a multi mesh environment? (how large are the individual meshes?)
+*   What version of Istio and Kubernetes are you running, in nonprod and prod?
+*   Does Istio integrate well with all cloud providers?
+*   Should we do this ourselves or hire Professional Services?
+*   Anyone has experience comparing Linkerd with Istio and if so can you share your experience? Version of Linkerd?
+
+**Agenda**:
+
+
+
+*   Volunteers to share your Journey in running Istio in Production (5 mins each)
+
+<table>
+  <tr>
+   <td>
+Name
+   </td>
+   <td>Company
+   </td>
+   <td>Available (Y/N)
+   </td>
+  </tr>
+  <tr>
+   <td>Daniel Kleuser
+   </td>
+   <td>Trivago
+   </td>
+   <td>N (See note below)
+   </td>
+  </tr>
+  <tr>
+   <td>Krisztian Flautner
+   </td>
+   <td>BanzaiCloud
+   </td>
+   <td>Y
+   </td>
+  </tr>
+  <tr>
+   <td>Jessica Andersson/Janos Csorvasi
+   </td>
+   <td>Meltwater
+   </td>
+   <td>Y
+   </td>
+  </tr>
+  <tr>
+   <td>Jing Zhou
+   </td>
+   <td>MUFG
+   </td>
+   <td>Y
+   </td>
+  </tr>
+  <tr>
+   <td>Eric Wood
+   </td>
+   <td>UA
+   </td>
+   <td>N
+   </td>
+  </tr>
+  <tr>
+   <td>Suresh Visvanathan
+   </td>
+   <td>Yahoo
+   </td>
+   <td>Y
+   </td>
+  </tr>
+  <tr>
+   <td>Dewet Diener
+   </td>
+   <td>Curve
+   </td>
+   <td>N
+   </td>
+  </tr>
+  <tr>
+   <td>Pratik Wadher/Jason Webb
+   </td>
+   <td>Intuit
+   </td>
+   <td>Y
+   </td>
+  </tr>
+  <tr>
+   <td>Matt Young
+   </td>
+   <td>EverQuote
+   </td>
+   <td>N (See note below)
+   </td>
+  </tr>
+  <tr>
+   <td>Jimmy Song
+   </td>
+   <td>Ant Financial
+   </td>
+   <td>N (See note below)
+   </td>
+  </tr>
+  <tr>
+   <td>David Radcliffe
+   </td>
+   <td>Shopify
+   </td>
+   <td>Y
+   </td>
+  </tr>
+</table>
+
+
+
+    **Matt Young, EverQuote**: (Apologies I’m unable to attend.)
+
+
+
+*   We’re running both Istio and Linkerd2 in production.  We’ve migrated nearly all workloads off Istio except for one that’s using routing rules based on custom headers.
+*   We had issues with certificates that had been rotated by cert-manager (on the istio-ingressgateway) not being picked up.  If this happens you’ll know quickly, and need to manually restart pods.
+*   We found Istio to be extremely full featured, nearly to a fault.  For our specific use cases we needed mTLS, gRPC Routing, and observability with a low overhead, without being super opinionated on Ingress choices.  At the time we needed to be in production with a mesh, Managed Istio for GKE seemed to be perpetually in Beta, and debugging / diagnosing various issues was complicated by it having a LOT of moving parts, CRD’s, etc. That said, Istio works as designed - there’s just a non-trivial learning curve.
+
+**	Daniel Kleuser, trivago:**
+
+
+
+*   We’re running Istio 1.4 (self managed) in production and non-production on GKE and on-premises
+*   It is used for our backend services (there is actually nothing else on our clusters) with a couple of hundred Pods per cluster
+*   We had to introduce it when migrating to Kubernetes because we required load-balanced gRPC connections. Before, we were running on self-operated Hashicorp Nomad clusters with a set of Envoy (initially Linkerd 1) proxies in front of them.
+*   We’re not using the full feature set (yet), we benefit mostly from its gRPC load-balancing capabilities with Envoy and the observability it comes with
+*   Features we’re waiting for to be production-ready: 
+    *   Rate limiting
+    *   Locality-aware routing to save traffic costs betweens zones within a GCP region
+*   We saw the following downsides/issues:
+    *   Steep learning curve / hard to explain to everyone who’s working with resources on our clusters
+    *   Updating introduced sometimes new issues (for example way higher resource consumption of the sidecar proxies introduced in 1.3, but fixed already)
+    *   We had to tweak some settings for our needs (based on the official Helm chart)
+    *   Especially in the beginning we had issues due to a missing startup order for containers within a Pod. Our application containers were sometimes healthy before the Istio sidecar which lead to the application being unable to connect to other services. We had to mitigate this by introducing an artificial pause in the startup script for the app container. Luckily, this got way better over time.
+
+**Jimmy Song, Ant Financial (Based in China, cause time lag problem, maybe attend)**
+
+
+
+*   Service Mesh scale: 100k+ pods in production on-premise based on Kubernetes 
+*   We use Istio 1.2.4, modified components pilot, citadel, nodeagent in production.
+*   We use MOSN([https://github.com/mosn/mosn](https://github.com/mosn/mosn)) instead of Envoy as a data plane.
+*   Challenges encountered with service meshes in production?
+    *   Seamless migration of historical services with minimal business changes.
+    *   Support custom RPC, we use SOFA RPC([https://github.com/sofastack/sofa-rpc](https://github.com/sofastack/sofa-rpc))
+    *   Sidecar maintenance
+*   Mesh is introduced on the core traffic route, which is mainly used for service management, security encryption, and time-sharing scheduling.
+*   Volunteers to share your experiences with Istio vs Linkderd (5 mins each)
+
+<table>
+  <tr>
+   <td>
+Name
+   </td>
+   <td>Company
+   </td>
+   <td>Available (Y/N)
+   </td>
+  </tr>
+  <tr>
+   <td>Rob Mason
+   </td>
+   <td>Workday
+   </td>
+   <td>Y
+   </td>
+  </tr>
+  <tr>
+   <td>Matt Young
+   </td>
+   <td>EverQuote
+   </td>
+   <td>N (See note below)
+   </td>
+  </tr>
+</table>
+
+
+
+    **Matt Young, EverQuote**: Linkerd2 is our production service mesh today.  Our initial pilot/alpha has gone quite well, and we’re rolling to it in force.  Reasons why:
+
+
+
+*   Scenario: We need groceries once per week, from a store a mile away down a bumpy dirt road.  For a small team, Istio _feels like_ having 2 Buggatti’s.  One is perpetually in a state of “diagnosing/fixing” and the other is AWESOME - with tons of features...and a stupidly fast top speed...that we don’t need, is hard to enter/exit, and with bumpy road struggles.  That’s probably not fair, but it was our experience.
+*   Regarding scope/features/cost of adoption:
+    *   Istio has made project decisions to have more scope / breadth / features, at the cost of overhead, learning curve, and requiring configuration.  
+    *   Linkerd2 tries to do less, but manages to do it with almost no mandatory configuration, with a “bring your own ingress” approach (the ingress controller is meshed).  This leaves the door open for nginx, ambassador, gloo, … without drama.  
+    *   We have found that most developers with 20 mins and the docs were able to get up to speed.
+*   Killer features of Linkerd that we like very much
+    *   Project Governance: It’s a CNCF Project with open governance.  Istio is not.  
+    *   gRPC load balancing (why we started) 
+    *   Useful dashboards out of the box, based on prometheus + grafana - so this meshes with our overall CNCF-based observability stack.
+    *   [https://linkerd.io/2/features/service-profiles](https://linkerd.io/2/features/service-profiles/) - per method/route metrics.
+    *   “Tap” command (MITM spam - wildly useful for general debugging)
+    *   mTLS out of the box - that’s permissive for un-meshed services
+    *   Nice integration with flagger, deploy via helm/flux, simple to run multiple control planes.
+*   Things still a little rough around the edges
+    *   Can’t run multiple _versions_ of control plane concurrently (CRD’s are not versioned yet) - all this means is upgrades should be tested on isolated cluster.
+
+**Additional Questions: (If we have time)**
+
+
+
+*   For Krisztian: you mention that Linkerd does not work well for advanced use cases. Can you give some examples.
+    *   Linkerd v1 did not support Tracing, Multi-cluster, canary, circuit breakers, ingress… don’t know how much of this changed since we last looked.
+*   For Janos: Have you considered augmenting istio with validating webhooks to prevent usecases like [https://github.com/istio/istio/issues/20703](https://github.com/istio/istio/issues/20703) ?
+    *   Wanted istio to work out of the box, and this bug affects many more things. 
+    *   Doesn’t even need to be on an istio enabled namespace to take down the cluster
+    *   Jon Moter (zendesk): we're starting to use [opa-gatekeeper](https://github.com/open-policy-agent/gatekeeper) to do validation checks, e.g. checking that ports have names and blocking port 443 and non-https names
+*   For David: Were performance issues across different clusters? Was mixer being used as an authorization controller in these tests?
+    *   Not sure about the test usecase for performance issues. Mixer (including policy and telemetry) was fully disabled, and performance issues were still observed.
+*   Any Istio failure stories for [https://k8s.af](https://k8s.af)? 
+*   Do you use GitOps with Service Mesh?
+*   Any experience with progressive rollout (using Flagger with Istio) ?
+    *   We looked at it but didn’t work in the multi-cluster use-cases we were going after. Ended up developing our own canary operator, it’s part of Backyards. [https://banzaicloud.com/blog/istio-canary/](https://banzaicloud.com/blog/istio-canary/) 
+*   Any experience with multi-tenant clusters and running multiple meshes?
+    *   Shopify runs multi-cluster/multi-mesh but not too big
+*   Installing istio: docs recommend using istioctl for that as opposed to helm, which will be deprecated. Did you use istioctl for deployment? How much control over the deployment did you find it provides?
+    *   Check out the istio-operator that we wrote [Banzai Cloud] easiest way to do it is to check out [https://banzaicloud.com/docs/backyards/](https://banzaicloud.com/docs/backyards/) and then do: `backyards istio install, source at: https://github.com/banzaicloud/istio-operator`
+*   Any thoughts on Istio’s migration from microservice architecture to monolith? Particularly w.r.t. Migration between the two and still being able to turn off Mixer etc.
+    *   Ref [https://blog.christianposta.com/microservices/istio-as-an-example-of-when-not-to-do-microservices/](https://blog.christianposta.com/microservices/istio-as-an-example-of-when-not-to-do-microservices/) 
+*   Where can I access the recording for this call?
+*   
+
+**Follow Up**:
+
+
+
+*   March 5, 2020 - CNCF SIG-DX Topic: Service Mesh
+*   Potential Service Mesh SIG?
+*   Cheryl - I’ve extended the End User Partner Summit in KubeCon Amsterdam for face to face discussion. Please [register if you want to join](https://docs.google.com/forms/d/e/1FAIpQLSeqady6rC5yaAdAm5NEPAslEURBLiJysB0nfAUsO6TWU_c-pg/viewform) on Wednesday, 1 April 12:25 - 18:00.
+
+<!-- Docs to Markdown version 1.0β18 -->
