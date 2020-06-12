@@ -5,8 +5,9 @@ their voices heard. Companies that use cloud-native technologies internally, but
 do not sell any cloud-native services externally, are eligible to join the End
 User Community.
 
-The community collaborates via:
-* [The cncf/enduser private repo, including SIGs](https://github.com/cncf/enduser)
+## Online community channels
+
+* [The cncf/enduser private repo](https://github.com/cncf/enduser)
    * This repo includes an insightful question/answer catalog for end user companies
      that includes relatively detailed answers from end user companies about how they
      operate, what cloud native tools they're using, technical/process concerns and
@@ -16,9 +17,9 @@ The community collaborates via:
 
 If your organization is already a member of the [End User Community](https://www.cncf.io/people/end-user-community/), you can [request access here](http://memberdesk.cncf.io/) or email twaggoner@linuxfoundation.org.
 
-## CNCF End User Partner Summit
+## Community Events
 
-This is the face-to-face meeting, as a Day Zero Co-located event at KubeCon CloudNativeCon. The goals are to:
+The End User Partner Summit is the face-to-face meeting, as a private event at KubeCon CloudNativeCon. The goals are to:
 
 * Share and learn about other end users
 * Find common needs and plan future collaboration 
@@ -27,7 +28,7 @@ Tickets cost USD $100 which is donated to the diversity scholarship. Your organi
 
 To join, register your KubeCon CloudNativeCon ticket with your company email address and add the "CNCF End User Partner Summit" to your ticket.
 
-The complete agenda is [available on the private cncf/enduser repository](https://github.com/cncf/enduser/blob/master/kubecon/README.md). If this 404s for you, [open an issue to request access](https://github.com/cncf/enduser-public/issues/new?assignees=oicheryl&labels=&template=access-end-user-community.md&title=Request+access+for+%5BORGANIZATION+NAME%5D).
+The complete agenda is [available on the private cncf/enduser repository](https://github.com/cncf/enduser/blob/master/kubecon/README.md). If this 404s for you, [request access via the Member Desk](http://memberdesk.cncf.io/).
 
 ## End User SIGs and User Groups
 
@@ -43,7 +44,7 @@ The CNCF produces and lists [case studies](https://docs.google.com/presentation/
 
 https://www.cncf.io/projects/case-studies/
 
-If you're interested in producing a case study, please reach out to info@cncf.io.
+If you're interested in contributing a case study, please go to https://github.com/cncf/foundation/blob/master/case-study-guidelines.md.
 
 ## Join
 
