@@ -32,6 +32,7 @@ The complete agenda is [available on the private cncf/enduser repository](https:
 ## End User SIGs and User Groups
 
 * Developer Experience (DX) SIG
+* Service Mesh User Group
 * [Financial User Group](https://github.com/cncf/financial-user-group)
 * [Research User Group](https://github.com/cncf/research-user-group)
 * [Telecom User Group](https://github.com/cncf/telecom-user-group)
